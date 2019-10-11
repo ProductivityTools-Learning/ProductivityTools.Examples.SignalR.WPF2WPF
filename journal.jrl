@@ -1,0 +1,7 @@
+2019.10.11:
+Custom hub needs to be public
+
+2019.10.11:
+In client we are listening on event (HubProxy.On<string>("Event",...
+This event name needs to be the same as in Client.All.event
+event here is dynamic
