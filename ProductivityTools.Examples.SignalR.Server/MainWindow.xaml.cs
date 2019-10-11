@@ -16,15 +16,10 @@ using System.Windows.Shapes;
 
 namespace ProductivityTools.Examples.SignalR.Server
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public IDisposable SignalR { get; set; }
-
         const string ServerURI = "http://localhost:8080";
-
 
         public MainWindow()
         {

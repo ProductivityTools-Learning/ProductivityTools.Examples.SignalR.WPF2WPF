@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace ProductivityTools.Examples.SignalR.Client
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public IHubProxy HubProxy { get; set; }
@@ -29,13 +26,13 @@ namespace ProductivityTools.Examples.SignalR.Client
         {
             InitializeComponent();
         }
-         
+
         private void btnConnectClick(object sender, RoutedEventArgs e)
         {
             Connection = new HubConnection(ServerURI);
             HubProxy = Connection.CreateHubProxy("ExampleHub");
-            //Handle incoming event from server: use Invoke to write to console from SignalR's thread
-            HubProxy.On<string>("Send", (date) => this.Dispatcher.Invoke(() => btnSend.Content = "fsa"));
+            HubProxy.On<string>("Send", (text) => this.Dispatcher.Invoke(() => btnSend.Content = text));
+
             try
             {
                 Connection.Start().Wait();
@@ -44,12 +41,11 @@ namespace ProductivityTools.Examples.SignalR.Client
             {
                 return;
             }
-
         }
 
         private void btnSendClick(object sender, RoutedEventArgs e)
         {
-            HubProxy.Invoke("Send", "test123");
+            HubProxy.Invoke("Send", txtInput.Text);
         }
     }
 }
