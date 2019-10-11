@@ -31,7 +31,7 @@ namespace ProductivityTools.Examples.SignalR.Client
         {
             Connection = new HubConnection(ServerURI);
             HubProxy = Connection.CreateHubProxy("ExampleHub");
-            HubProxy.On<string>("Send", (text) => this.Dispatcher.Invoke(() => btnSend.Content = text));
+            HubProxy.On<string>("Send", (text) => this.Dispatcher.Invoke(() => lblIncome.Content  = text));
 
             try
             {
