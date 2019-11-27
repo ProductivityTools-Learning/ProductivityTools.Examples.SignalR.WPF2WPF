@@ -35,7 +35,7 @@ namespace ProductivityTools.Examples.SignalR.Server
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
         }
     }

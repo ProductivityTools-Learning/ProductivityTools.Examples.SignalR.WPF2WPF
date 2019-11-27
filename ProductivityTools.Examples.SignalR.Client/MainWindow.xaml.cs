@@ -39,7 +39,7 @@ namespace ProductivityTools.Examples.SignalR.Client
             }
             catch (Exception ex)
             {
-                return;
+                throw ex;
             }
         }
 
